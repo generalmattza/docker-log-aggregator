@@ -2,12 +2,9 @@ services:
   logging-server:
     build: .
     ports:
-      - "9009:9009"
+      - "9000:9000"
     volumes:
       - log-storage:/var/log
-    extra_hosts:
-      - "docker.for.mac.host.internal:host-gateway"
-
   promtail:
     image: grafana/promtail:latest
     volumes:

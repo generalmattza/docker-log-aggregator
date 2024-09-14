@@ -13,8 +13,8 @@ import time
 from log_server import serve_forever
 import logging
 
-HOST = "localhost"
-PORT = 9009
+HOST = "0.0.0.0"
+PORT = 9000
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -29,7 +29,7 @@ logging.getLogger().addHandler(console)
 
 # Function to run the server
 def run_server():
-    log_server = serve_forever(host=HOST, port=PORT, target="/app/log_server_0.log")
+    log_server = serve_forever(host=HOST, port=PORT, target="/var/log/log_server_0.log")
 
 
 if __name__ == "__main__":
