@@ -2,9 +2,11 @@ services:
   logging-server:
     build: .
     ports:
-      - "9000:9000"
+      - "9009:9009"
     volumes:
       - log-storage:/var/log
+    extra_hosts:
+      - "docker.for.mac.host.internal:host-gateway"
 
   promtail:
     image: grafana/promtail:latest
@@ -20,7 +22,6 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
       - ./config/loki-config.yaml:/etc/loki/local-config.yaml
-
 
   grafana:
     volumes:
@@ -55,4 +56,5 @@ services:
 volumes:
   log-storage:
   grafana-data:
+
 
