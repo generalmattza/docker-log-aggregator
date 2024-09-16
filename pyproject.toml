@@ -22,7 +22,7 @@ classifiers = [
 ]
 
 dependencies = [
-  "python-logging-server @ git+https://github.com/generalmattza/python-logging-server.git",
+  "python-logging-server @ git+https://github.com/davidson-engineering/python-logging-server.git",
 ]
 
 # If a module, then use fetch version from src/module_name/__init__.py

@@ -5,7 +5,6 @@ services:
       - "9000:9000"
     volumes:
       - log-storage:/var/log
-
   promtail:
     image: grafana/promtail:latest
     volumes:
@@ -20,7 +19,6 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
       - ./config/loki-config.yaml:/etc/loki/local-config.yaml
-
 
   grafana:
     volumes:
@@ -55,4 +53,5 @@ services:
 volumes:
   log-storage:
   grafana-data:
+
 

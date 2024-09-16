@@ -1,0 +1,9 @@
+config/
+build/
+.*
+LICENCE
+Dockerfile
+docker-compose.yml
+pyproject.toml
+README.md
+!.env

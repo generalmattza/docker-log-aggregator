@@ -8,18 +8,19 @@
 """a_short_module_description"""
 # ---------------------------------------------------------------------------
 
+import sys
 import time
-from log_server import LogServer
+from log_server import serve_forever
 import logging
 
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 9000
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
-console = logging.StreamHandler()
+console = logging.StreamHandler(sys.stdout)
 console.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
 console.setFormatter(formatter)
@@ -28,11 +29,7 @@ logging.getLogger().addHandler(console)
 
 # Function to run the server
 def run_server():
-    log_server = LogServer(host=HOST, port=PORT, log_file="/var/log/log_server_0.log")
-    log_server.start()
-
-    while True:
-        time.sleep(1)
+    log_server = serve_forever(host=HOST, port=PORT, target="/var/log/log_server_0.log")
 
 
 if __name__ == "__main__":

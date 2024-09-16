@@ -18,4 +18,4 @@ scrape_configs:
       labels:
         job: logs
         host: docker-log-aggregator
-        __path__: /var/logs/log_server_*.log
+        __path__: /var/log/log_server_*.log
